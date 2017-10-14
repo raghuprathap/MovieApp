@@ -1,0 +1,35 @@
+<md-card style="text-align: center;margin: 5px auto;width: 30%;">
+	<img md-card-image src={{registrationLogo}} alt="REGISTRATION LOGO" style="padding:5px;height:150px;width:100px" />
+	<form class="registration-form">
+		<div class="registration-form-field">
+			<input mdInput placeholder="First Name" #firstName [formControl]="firstNameFormControl">
+			<md-error *ngIf="firstNameFormControl.hasError('required') && !isFormValidated">
+		      First Name is <strong>required</strong>
+		    </md-error>
+		</div>
+		<div class="registration-form-field">
+			<input mdInput placeholder="Last Name" #lastName [formControl]="lastNameFormControl">
+			<md-error *ngIf="lastNameFormControl.hasError('required') && !isFormValidated">
+		      Last Name is <strong>required</strong>
+		    </md-error>
+		</div>
+		<div class="registration-form-field">
+			<input mdInput placeholder="Email" #username [formControl]="emailFormControl">
+			<md-error *ngIf="emailFormControl.hasError('pattern') && !isFormValidated">
+		      Please enter a valid email address
+		    </md-error> 
+		 	<md-error *ngIf="emailFormControl.hasError('required') && !isFormValidated">
+		      Email is <strong>required</strong>
+		    </md-error>
+		</div>
+		<div class="registration-form-field">
+			<input mdInput type="password" placeholder="Password" #password [formControl]="passwordFormControl">
+			<md-error *ngIf="passwordFormControl.hasError('required') && !isFormValidated">
+		      Password is <strong>required</strong>
+		    </md-error>
+		</div>
+	</form>
+
+	<button (click)="register(firstName.value, lastName.value, username.value, password.value)" md-raised-button color="primary">Register
+	</button>
+</md-card>

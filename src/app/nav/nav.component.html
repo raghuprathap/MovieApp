@@ -1,0 +1,39 @@
+<md-toolbar color="primary">
+	<md-icon style="font-size:30px;">video_library</md-icon>
+	<span style="margin-left: 10px;">{{title}}</span>
+	<span class="example-spacer"></span>
+	<button md-button [mdMenuTriggerFor]="appMenu">
+		<md-icon>menu</md-icon>
+	</button>
+</md-toolbar>
+<md-menu #appMenu="mdMenu">
+	<div *ngIf="isUserLoggedIn"> 
+		<a href="dashboard">
+			<button md-menu-item>
+				<md-icon style="color:#673AB7;">dashboard</md-icon>Dashboard
+			</button>
+		</a>
+		<a href="favourite">
+			<button md-menu-item>
+				<md-icon style="color:#673AB7;">favorite</md-icon>Favourites
+			</button>
+		</a>
+		<a href="logout">
+			<button md-menu-item>
+				<md-icon style="color:#673AB7;">power_settings_new</md-icon>Logout
+			</button>
+		</a>
+	</div>
+	<div *ngIf="!isUserLoggedIn">
+		<a href="register">
+			<button md-menu-item>
+				<md-icon style="color:#673AB7;">account_circle</md-icon>Register
+			</button>
+		</a>
+		<a href="login">
+			<button md-menu-item>
+				<md-icon style="color:#673AB7;">verified_user</md-icon>Login
+			</button>
+		</a>
+	</div>
+</md-menu>

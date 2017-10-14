@@ -1,0 +1,22 @@
+<md-card style="text-align: center;margin: 5px auto;width: 30%;">
+	<img md-card-image src={{loginLogo}} alt="LOGIN LOGO" style="padding:5px;height:150px;width:150px" />
+	<form class="login-form">
+	  <div class="login-form-field">
+	    <input mdInput placeholder="Email" #username [formControl]="emailFormControl">
+	    <md-error *ngIf="emailFormControl.hasError('pattern') && !isFormValidated">
+	      Please enter a valid email address
+	    </md-error>
+	    <md-error *ngIf="emailFormControl.hasError('required') && !isFormValidated">
+	      Email is <strong>required</strong>
+	    </md-error>
+	  </div>
+	  <div class="login-form-field">
+	    <input mdInput type="password" placeholder="Password" #password [formControl]="passwordFormControl">
+	    <md-error *ngIf="passwordFormControl.hasError('required') && !isFormValidated">
+	      Password is <strong>required</strong>
+	    </md-error>
+	  </div>
+	</form>
+	<button (click)="login(username.value, password.value)" md-raised-button color="primary">Login
+	</button>
+</md-card>

@@ -1,0 +1,16 @@
+.registration-form {
+  width: 50%;
+  margin: 2px auto;
+}
+
+.registration-form-field {
+  margin: 5px auto;
+}
+
+input{
+  -moz-border-radius: 5px;
+ 	border-radius: 5px;
+   padding:5px;
+   height: 25px;
+   font-size: 15px;
+}

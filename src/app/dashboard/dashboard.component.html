@@ -1,0 +1,24 @@
+<md-card style="text-align: center;margin-top: 5px;">
+	<img md-card-image src={{imagePath}} alt="MOVIE LOGO" style="padding:5px;height:100px;width:100px" />
+	<md-card-title>{{heading}}</md-card-title>
+	<input mdInput placeholder="Search Movie" #moviename/>
+	<button (click)="search(moviename.value)" md-raised-button color="primary">
+		<md-icon>search</md-icon>
+	</button>
+</md-card>
+<md-card *ngFor="let movie of movies" style="text-align: center;width: 40%;margin:5px auto;">
+	<md-card-title>{{movie.title}}</md-card-title>	
+	<img md-card-md-image src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="MOVIE POSTER" style="height:300px;width:70%;" />
+	<md-card-actions style="width:70%;margin: 10px auto;">
+		<md-icon style="float: left;font-size:30px;margin-bottom: 2px;" (click)="addToFavorite(movie)">favorite</md-icon>
+		<md-icon style="float: right;font-size:30px;margin-bottom: 2px;" (click)="detail(movie.id)">details</md-icon>
+	</md-card-actions>
+	<md-card-content *ngIf="movie.id == clickedId && showDetail" style="margin: 15px auto;">
+		<div style="font-size: 16px;">
+			<p><b>Title</b> - <span>{{movie.title}}</span></p>
+			<p><b>Release Date</b> - <span>{{movie.release_date}}</span></p>
+			<p><b>Average Vote</b> - <span>{{movie.vote_average}}</span></p>
+			<p><b>Overview</b> - <span>{{movie.overview}}</span></p>
+		</div>
+	</md-card-content>
+</md-card>

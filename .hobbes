@@ -1,0 +1,8 @@
+{
+  "workflow": "NodeJSExpressMongoApp",
+  "scores": {
+    "cadetTests": 40,
+    "commanderTests":40,
+    "eslint": 20
+  }
+}

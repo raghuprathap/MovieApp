@@ -1,0 +1,15 @@
+<md-card style="text-align: center;margin-top: 5px;">
+	<img md-card-image src={{favoriteLogo}} alt="FAVORITE LOGO" style="height:100px;width:100px;margin-top: 3px;" />
+	<md-card-title>{{heading}}</md-card-title>
+</md-card>
+<md-card *ngFor="let movie of movies" style="text-align: center;width: 30%;margin:5px auto;">
+	<md-card-title>{{movie.title}}</md-card-title>	
+	<img md-card-md-image src="https://image.tmdb.org/t/p/w500/{{movie.poster}}" alt="MOVIE POSTER" style="height:250px;width:70%;" />	
+	<md-card-content style="margin: 15px auto;">
+		<p><b>Average Vote</b> - <span>{{movie.voteAverage}}</span></p>
+	</md-card-content>
+	<md-icon style="font-size:25px;" (click)="delete(movie.imdbID)">delete</md-icon>
+</md-card>
+<md-card *ngIf="totalFavMovies == '0'" style="text-align: center;width: 30%;margin:5px auto;">
+	<md-card-title>Your Favorite Movie List is Empty.</md-card-title>
+</md-card>

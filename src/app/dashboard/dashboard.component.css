@@ -1,0 +1,8 @@
+input{
+  -moz-border-radius: 5px;
+ 	border-radius: 5px;
+   padding:5px;
+   height: 25px;
+   font-size: 15px;
+   width:35%;
+}
