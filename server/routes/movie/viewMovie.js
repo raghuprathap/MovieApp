@@ -1,7 +1,7 @@
 let Movie = require('../../model/movie');
 
 module.exports = function(req, res) {
-  Movie.find({userId: req.body.userId}, function(err, movies)
+  Movie.find({userId: req.params.userId}, function(err, movies)
   {
     if (err)
     {

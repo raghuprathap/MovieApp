@@ -13,12 +13,16 @@ const router = express.Router();
   next();
 });*/
 // api to search movie according to given title
-router.get('/search/:title', searchMovie);
+// router.get('/search/:title', searchMovie);
+router.get('/movies', searchMovie);
 // api to add movie into database
-router.post('/add', addMovie);
+// router.post('/add', addMovie);
+router.post('/users/:userId/movies​', addMovie);
 // api to get all stored movies
-router.post('/view', viewMovie);
+// router.post('/view', viewMovie);
+router.get('/users/:userId/movies', viewMovie);
 // api to delete a movie
-router.delete('/delete', deleteMovie);
+// router.delete('/delete', deleteMovie);
+router.delete('/users/:userId/movies/:movieId', deleteMovie);
 
 module.exports = router;

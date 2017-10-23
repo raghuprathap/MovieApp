@@ -21,7 +21,7 @@ describe('Testing to search movies according to title', function() {
   //  testcase
   it('Should handle to search movie request', function(done) {
     request(app)
-    .get('/api/movie/search/superman')
+    .get('/api/movie/movies?search=superman')
     .expect(200)
     .expect('Content-Type', /json/)
     .end(function(err, res) {
@@ -92,9 +92,9 @@ describe('Testing to get all movies', function() {
   //  testcase
   it('Should handle to get all movies request', function(done) {
     request(app)
-    .post('/api/movie/view')
+    .get('/api/movie/users/abc@gmail.com/movies')
     .expect(200)
-    .send({userId: 'abc@gmail.com'})
+    // .send({userId: 'abc@gmail.com'})
     .expect('Content-Type', /json/)
     .end(function(err, res) {
       should.not.exist(err);
@@ -121,7 +121,7 @@ describe('Testing to delete a movie', function()
   it('Should handle to delete a movie request', function(done)
   {
     request(app)
-    .delete('/api/movie/delete')
+    .delete('/api/movie/users/abc@gmail.com/movies/593e855e071f542534ea437d')
     .expect(200)
     .expect('Content-Type', /json/)
     .send(dataDelete)

@@ -3,7 +3,7 @@ let config = require('../../config');
 
 module.exports = function(req, res)
 {
-  let searchMoiveURL = config.ImdbURL + config.apiKey + '&query=' + req.params.title;
+  let searchMoiveURL = config.ImdbURL + config.apiKey + '&query=' + req.query.search;
   http.get(searchMoiveURL, function(resp)
   {
     resp.setEncoding('utf8');
