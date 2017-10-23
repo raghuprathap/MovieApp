@@ -1,3 +1,4 @@
+/* eslint no-process-env: "error"*/
 let express = require('express');
 let path = require('path');
 let logger = require('morgan');
@@ -15,7 +16,7 @@ mongoose.connect(config.database.local, { useMongoClient: true });
 let db = mongoose.connection;
 db.on('error', winston.error.bind('error', 'connection error!!!'));
 db.once('open', function() {
-    winston.log('info', 'connected to database successfully!!!');
+	winston.log('info', 'connected to database successfully!!!');
 });
 
 app.use(logger('dev'));
@@ -31,14 +32,14 @@ app.use('/api/movie', movie);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+	res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    let err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+	let err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
 // error handlers
@@ -46,29 +47,29 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
+	app.use(function(err, req, res) {
+		res.status(err.status || 500);
+		res.render('error', {
+			message: err.message,
+			error: err
+		});
+	});
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+	res.status(err.status || 500);
+	res.render('error', {
+		message: err.message,
+		error: {}
+	});
 });
 
 /**
  * Get port from environment and store in Express.
  */
-const port = process.env.PORT || '4200';
+const port = '4200';
 app.set('port', port);
 
 /**

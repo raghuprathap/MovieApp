@@ -2,9 +2,6 @@ let Movie = require('../../model/movie');
 
 module.exports = function(req, res)
 {
-  console.log("aaaaaaaaaaaaa");
-  console.log(req.body.imdbID);
-  console.log(req.body.userId);
   Movie.findOne({imdbID: req.body.imdbID, userId: req.body.userId}, function(err, movie) {
     if(err)
     {

@@ -1,10 +1,11 @@
 module.exports = {
-    "parser": "babel-eslint",
     "env": {
         "browser": true,
         "node": true,
         "es6": true
     },
+
+    "parser": "babel-eslint",
 
     "globals": {
         "describe": false,
@@ -12,12 +13,11 @@ module.exports = {
         "before": false,
         "beforeEach": false,
         "after": false,
-        "afterEach": false
+        "afterEach": false,
+        "jasmine": false
     },
 
-    "parserOptions": {
-      "ecmaFeatures":
-      {
+    "ecmaFeatures": {
         "arrowFunctions": true,
         "binaryLiterals": true,
         "blockBindings": true,
@@ -40,7 +40,6 @@ module.exports = {
         "unicodeCodePointEscapes": true,
         "globalReturn": true,
         "jsx": true
-      }
     },
 
     "rules": {
