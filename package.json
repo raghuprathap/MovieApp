@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build && node app.js",
     "eslint": "./node_modules/.bin/eslint *.js server/*.js src/*.ts",
-    "test": "mocha server/test && ng test"
+    "test": "./node_modules/mocha server/test"
   },
   "private": true,
   "dependencies": {
