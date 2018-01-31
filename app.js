@@ -32,6 +32,7 @@ app.use('/api/movie', movie);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
+  console.log("Hello");
 	res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
